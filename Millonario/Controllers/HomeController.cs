@@ -21,6 +21,10 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult RespuestapreguntaOk()
+    {
+        return View();
+    }
 [HttpGet]
     public IActionResult Pregunta(string Nombre)
     {

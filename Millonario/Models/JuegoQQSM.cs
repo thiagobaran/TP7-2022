@@ -18,7 +18,7 @@ namespace Millonario.Models
         private static bool _ComodinDobleChance;
         private static List<Pozo> ListaPozo = new List<Pozo>(null);
         private static Jugador _Player;
-        public static void inicializarJuego(string nombre, Jugador jugador)
+        /*public static void inicializarJuego(string nombre, Jugador jugador)
             {
                 _idPreguntaActual = idPreguntaActual;
                 _RespuestaCorrectaActual = RespuestaCorrectaActual;
@@ -62,6 +62,6 @@ namespace Millonario.Models
                 _RespuestaCorrectaActual =  db.QueryFirstOrDefault<Respuesta>(sql,new{idRespuestaActual = idRespuesta});
             }
             return List<Respuesta>;
-        }
+        }*/
     }
 }

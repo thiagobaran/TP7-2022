@@ -37,17 +37,16 @@ body {
 }
 
 .rsp {
-    margin-left: 2%;
+    margin-left: 0%;
     margin-top: 5%;
+    margin-right: 2%;
 }
 
 .pregunta {
-    margin-top: 20%;
-    font-size: 400%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: blueviolet;
+    font-size: 200%;
+    background-color: blue;
     font-style: bold;
-    color: white;
+    color: rgb(93, 0, 105);
 }
 
 .texto {
@@ -81,4 +80,10 @@ body {
     width: 60%;
     padding: 20px;
     text-align: center;
+}
+#plantarse{
+    font-size: 150%;
+}
+.jumbo{
+    margin-top: 20%;
 }
