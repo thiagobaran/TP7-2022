@@ -1,0 +1,138 @@
+@{   <p class="texto">Jugador: nombre jugador</p>
+    @* <a href='@Url.Action("Player","Home", new {ComodinDobleChance=@pComodin.idPlayer})' class="btn btn-primary">50/50</a>
+    <a href='@Url.Action("Player","Home", new {Comodin50=@pComodin.idPlayer})' class="btn btn-primary">Doble chance</a>
+    <a href='@Url.Action("Player","Home", new {ComodinSaltear=@pComodin.idPlayer})' class="btn btn-primary">Saltear</a> *@
+      
+    <div class = "container-fluid ">
+        <div class="row">
+            <div class="col-2">
+                <div class="row">
+                <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2">Comodin 50/50</a>
+
+            </div>
+            <div class="row">
+            <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2">Comodin doble chance</a>
+
+        </div>
+        <div class="row">
+            <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2">Comodin Saltear</a>
+
+        </div>
+
+            </div>
+            <div class="col-8">
+                    <div class="card">
+                        <div class="card-body">
+                            This is some text within a card body.
+                        </div>
+                    </div>
+                <div class="row row-cols-2 rsp">
+                <a href='@Url.Action("RespuestaPreguntaOK","Home")' class="btn btn-primary">Respuesta A</a>
+                <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary">Respuesta B</a>
+                <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary">Respuesta C</a>
+                <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary">Respuesta D</a>
+                </div>
+            </div>
+            <div class="col-2">
+                <table class="table table-bordered h-30 text-light">
+            <thead> 
+                <tr>
+                    <th scope="col"> </th>
+                    <th scope="col">Pozo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>$2.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>$5.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>$10.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>$20.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>$30.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>$50.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>$75.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>$100.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td>$130.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">10</th>
+                    <td>$150.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">11</th>
+                    <td>$300.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">12</th>
+                    <td>$500.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>$750.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">14</th>
+                    <td>$1.000.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">15</th>
+                    <td>$2.000.000</td>
+                </tr>
+            </tbody>
+        </table>
+            </div>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Launch demo modal
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+}
+
+    
