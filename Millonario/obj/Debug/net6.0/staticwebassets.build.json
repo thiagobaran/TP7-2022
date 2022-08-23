@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "m4givZv8Ru52yV6DzupEuu22ASZwa/aBtsYBchXaA1g=",
+  "Hash": "UPVNnn47MNWByHNCvlpMr87GIT2u/GOuT+cwYr3QDqI=",
   "Source": "Millonario",
   "BasePath": "_content/Millonario",
   "Mode": "Default",
@@ -68,6 +68,23 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\estudio.webp",
+      "SourceId": "Millonario",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\",
+      "BasePath": "_content/Millonario",
+      "RelativePath": "estudio.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\estudio.webp"
+    },
+    {
       "Identity": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\favicon.ico",
       "SourceId": "Millonario",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\fondoFin.png",
+      "SourceId": "Millonario",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\",
+      "BasePath": "_content/Millonario",
+      "RelativePath": "fondoFin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fondoFin.png"
     },
     {
       "Identity": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\home.jpg",
@@ -1103,40 +1137,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\logo.webp"
-    },
-    {
-      "Identity": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\pregunta.webp",
-      "SourceId": "Millonario",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\",
-      "BasePath": "_content/Millonario",
-      "RelativePath": "pregunta.webp",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\pregunta.webp"
-    },
-    {
-      "Identity": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\premio.jpg",
-      "SourceId": "Millonario",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\",
-      "BasePath": "_content/Millonario",
-      "RelativePath": "premio.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\premio.jpg"
     },
     {
       "Identity": "C:\\Users\\46876761\\Downloads\\TP7-2022\\Millonario\\wwwroot\\Thumbs.db",

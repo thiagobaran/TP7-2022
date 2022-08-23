@@ -25,6 +25,10 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult PantallaFindelJuego()
+    {
+        return View();
+    }
 [HttpGet]
     public IActionResult Pregunta(string Nombre)
     {

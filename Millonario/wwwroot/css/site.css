@@ -13,9 +13,17 @@ html {
     min-height: 100%;
 }
 
-body {
+.index {
     margin-bottom: 60px;
     background-image: url("https://static.vecteezy.com/system/resources/previews/001/836/959/non_2x/dark-pink-blue-backdrop-with-dots-vector.jpg");
+}
+.preg {
+    margin-top: 0%;
+    background-image: url("https://www.formulatv.com/images/articulos/102000/102042_AvP562qaE7J48sk0oR91xULNW3czFYiBg-h2.jpg");
+}
+.fin {
+    margin-top: 0%;
+    background-image: url("/fondoFin.png");
 }
 
 .logo {
@@ -42,6 +50,14 @@ body {
     margin-right: 2%;
 }
 
+.preguntas {
+    margin-top: 20%;
+}
+
+.pozo {
+    margin-top: 5%;
+}
+
 .pregunta {
     font-size: 200%;
     background-color: blue;
@@ -51,6 +67,8 @@ body {
 
 .texto {
     color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 140%;
 }
 
 .bg-image {
@@ -86,4 +104,12 @@ body {
 }
 .jumbo{
     margin-top: 20%;
+    background-color: rgba(0,0,255,0.2);
+}
+.textoFin{
+    font-size: 300%;
+}
+.textoFin2{
+    font-size: 150%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
