@@ -1,6 +1,10 @@
 @{  
     <body class="preg">
+<<<<<<< HEAD
+        <p class="texto" style="color: #f3da0b;">Jugador: nombre jugador</p>
+=======
         <p class="texto">Jugador: nombre jugador</p>
+>>>>>>> 945f54b0ce647fceb3d159b1bbf8e371eba68ccb
     @* <a href='@Url.Action("Player","Home", new {ComodinDobleChance=@pComodin.idPlayer})' class="btn btn-primary">50/50</a>
     <a href='@Url.Action("Player","Home", new {Comodin50=@pComodin.idPlayer})' class="btn btn-primary">Doble chance</a>
     <a href='@Url.Action("Player","Home", new {ComodinSaltear=@pComodin.idPlayer})' class="btn btn-primary">Saltear</a> *@
@@ -9,20 +13,50 @@
         <div class="row">
             <div class="col-2">
                 <div class="row">
-                <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2">Comodin 50/50</a>
+                <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2" style="background-color: violet;">Comodin 50/50</a>
 
             </div>
             <div class="row">
-            <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2">Comodin doble chance</a>
+            <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2" style="background-color: violet;">Comodin doble chance</a>
 
         </div>
         <div class="row">
-            <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2">Comodin Saltear</a>
+            <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary w-50 m-2" style="background-color: violet;">Comodin Saltear</a>
 
         </div>
 
             </div>
             <div class="col-8 preguntas">
+<<<<<<< HEAD
+                    <div class="opciones__item">
+            <button id="a" class="button fondoA"><span class="amarillo"></span><center>Pregunta</center></button>
+          </div>
+          <form method="post" action='@Url.Action("RespuestapreguntaOk","Home")'>
+          <div class="millonario">
+            <div class="millonario__item">
+              <div class="opciones">
+                <div class="opciones__item">
+                  <button id="a" class="button fondoA"><span class="amarillo">A:</span> opcion</button>
+                </div>
+                <div class="opciones__item">
+                  <button id="a" class="button fondoB"><span class="amarillo">B:</span> opcion</button>
+                </div>
+              </div>
+            </div>
+            <div class="millonario__item">
+              <div class="opciones">
+                <div class="opciones__item">
+                  <button id="a" class="button fondoA"><span class="amarillo">C:</span> opcion</button>
+                </div>
+                <div class="opciones__item">
+                  <button id="a" class="button fondoB"><span class="amarillo">D:</span> opcion</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+            </div>
+=======
                     <div class="card">
                         <div class="card-body pregunta">
                             Aca va la pregunta
@@ -35,6 +69,7 @@
                 <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary">Respuesta D</a>
                 </div> 
             </div>
+>>>>>>> 945f54b0ce647fceb3d159b1bbf8e371eba68ccb
             <div class="col-2 pozo">
                 <table class="table table-bordered h-30 text-light">
             <thead> 
@@ -110,6 +145,10 @@
         </div>
     </div>
     </body>
+<<<<<<< HEAD
+}
+=======
 }
 
     
+>>>>>>> 945f54b0ce647fceb3d159b1bbf8e371eba68ccb

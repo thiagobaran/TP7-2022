@@ -62,6 +62,14 @@ namespace Millonario.Models
                 _RespuestaCorrectaActual =  db.QueryFirstOrDefault<Respuesta>(sql,new{idRespuestaActual = idRespuesta});
             }
             return List<Respuesta>;
+        }
+        public static bool RespuestaUsuario(char Opción, char OpcionComodin='')
+        {
+            if(OpcionComodin!=null)
+            {
+                Jugador.ComodinDobleChance=0;
+            }
+
         }*/
     }
 }

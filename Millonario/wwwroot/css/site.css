@@ -26,6 +26,16 @@ html {
     background-image: url("/fondoFin.png");
 }
 
+.preg {
+    margin-top: 0%;
+    background-image: url("https://www.formulatv.com/images/articulos/102000/102042_AvP562qaE7J48sk0oR91xULNW3czFYiBg-h2.jpg");
+}
+
+.fin {
+    margin-top: 0%;
+    background-image: url("https://github.com/thiagobaran/TP7-2022/blob/main/Millonario/wwwroot/fondoFin.png?raw=true");
+}
+
 .logo {
     margin-top: 5%;
     margin-bottom: 2%;
@@ -60,7 +70,7 @@ html {
 
 .pregunta {
     font-size: 200%;
-    background-color: blue;
+    background-color: white;
     font-style: bold;
     color: rgb(93, 0, 105);
 }
@@ -99,11 +109,258 @@ html {
     padding: 20px;
     text-align: center;
 }
-#plantarse{
+
+#plantarse {
     font-size: 150%;
 }
-.jumbo{
+
+.jumbo {
     margin-top: 20%;
+<<<<<<< HEAD
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+.textoFin {
+    font-size: 300%;
+}
+
+.textoFin2 {
+    font-size: 150%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:root {
+    /* Colores que se utilizarán */
+    --color-base: #872f8f;
+    --color-secundario: #9919a5;
+    --color-terciario: #efb40c;
+    --color-terciarioB: #be8f0a;
+    /* Posición superior de los botones, menos el primero */
+    --margin-top: 10px;
+    /* Grosor de la línea que pasa a través
+     de los botones */
+    --grosor: 7px;
+    /* Altura de los botones */
+    --height: 50px;
+    /* Anchura máxima del contenedor principal */
+    --width: 800px;
+    /* El relleno de los botones en porcentaje
+     que será directamente proporcional a la 
+     inclinación de sus ángulos en función de la
+     posición de sus 4 nodos principales: */
+    --relleno: 10%;
+    /* Se emulará el padding pero en el color 
+     de relleno del botón para dar la sensación
+     visual de estar con bordes degradados de 
+     3px de grosor: */
+    --separacion: 3px;
+    /* Formas */
+    --formas: polygon( 0% 50%, var(--relleno) 0%, calc(100% - var(--relleno)) 0%, 100% 50%, calc(100% - var(--relleno)) 100%, var(--relleno) 100%);
+    /* Imágenes de fondo de los botones */
+    --fondoA: linear-gradient(90deg, #cc0066(14, 62, 190, 0.6) 20%, #cc0066(7, 31, 95, 0.9) 80%);
+    --fondoB: linear-gradient(90deg, #cc0066(7, 31, 95, 0.9) 20%, #cc0066(14, 62, 190, 0.6) 80%);
+}
+
+
+/* Contenedor principal */
+
+.millonario {
+    margin: 0 auto;
+    max-width: var(--width);
+}
+
+
+/* En este *item* van a estar los botones y las líneas 
+   que atraviesan los botones */
+
+.millonario__item {
+    position: relative;
+    min-height: var(--grosor);
+    transition: 300ms ease;
+}
+
+
+/* Margen superior del contenedor
+   de los botones, menos el primer contenedor */
+
+.millonario__item:not(:first-of-type) {
+    margin-top: 10px;
+}
+
+
+/* Línea cilíndrica que atraviesa los botones de opciones de
+   «quién quiere ser millonario» */
+
+.millonario__item::before {
+    content: "";
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* Fondo de las líneas que van entre los botones. Es la
+     que le da la apariencia 3D */
+    background-color: var(--color-base);
+    background-image: linear-gradient(0deg, var(--color-base), white, var(--color-secundario));
+    /* Altura de las líneas que están entre los botones*/
+    height: var(--grosor);
+    margin-top: 7%;
+}
+
+
+/* Se mostrarán o no las líneas que atraviesan los botones
+   en función del ancho disponible en el dispositivo en el
+   se visualicen */
+
+@media screen and (min-width: 450px) {
+    .millonario__item::before {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 449px) {
+    .millonario__item::before {
+        display: none;
+    }
+}
+
+
+/* Se comportará como cajas flexibles o no en función 
+   del ancho disponible en el dispositivo en el que se
+   visualicen */
+
+.opciones {
+    display: flex;
+}
+
+@media screen and (max-width: 449px) {
+    .opciones {
+        display: block;
+    }
+}
+
+.opciones__item {
+    --padding: 50px;
+    --divisor: 4;
+    transition: 300ms ease;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 50%;
+    position: relative;
+    min-height: var(--height);
+    text-align: center;
+    margin-top: 5%;
+}
+
+@media screen and (min-width: 450px) {
+    .opciones__item:first-of-type {
+        padding-left: var(--padding);
+        padding-right: calc(var(--padding) / var(--divisor));
+    }
+}
+
+@media screen and (min-width: 449px) {
+    .opciones__item:last-of-type {
+        padding-right: var(--padding);
+        padding-left: calc(var(--padding) / var(--divisor));
+    }
+}
+
+@media screen and (max-width: 449px) {
+    .opciones__item:not(:first-of-type) {
+        margin-top: 10px;
+    }
+}
+
+.opciones__item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    margin: auto;
+    background-color: #d0dcfc;
+}
+
+.opciones__item:hover .button::before {
+    background-color: var(--color-terciarioB);
+}
+
+.button {
+    display: block;
+    position: relative;
+    /* Relleno horizontal + 4px adicionales en función
+     de la posición de los nodos principales */
+    padding-left: calc(var(--relleno) + 4px);
+    padding-right: calc(var(--relleno) + 4px);
+    /* Relleno vertical en función del borde que emulamos
+     que queremos que se visualice, que es la que rodea
+     el botón*/
+    padding-top: calc(var(--separacion));
+    padding-bottom: calc(var(--separacion));
+    /* Se visualizarán los puntos suspensivos en el texto que
+     no quepan en el botón */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: var(--height);
+    width: 100%;
+    transition: 300ms ease;
+    /* La apariencia deseada en los botones */
+    clip-path: var(--formas);
+    border: 0;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    /* Imagen de fondo que utilizaremos para emular el borde 
+     degradado que rodea el botón */
+    background-image: radial-gradient(white, var(--color-secundario) 30%, white 50%, var(--color-secundario));
+    background-size: 120% 100%;
+    background-position: center center;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+
+/* Se utiliza un pseudoelemento que tendrá una imagen de fondo. El
+   pseudo elemento tapará la imagen de fondo del botón, pero, 
+   dejará visualizar 3px en los alrededores. Fundamental para
+   emular el fondo degradado */
+
+.button::before {
+    transition: 300ms ease;
+    content: "";
+    display: block;
+    position: absolute;
+    margin: auto;
+    left: calc(var(--separacion) * 2);
+    right: calc(var(--separacion) * 2);
+    top: var(--separacion);
+    bottom: var(--separacion);
+    clip-path: var(--formas);
+    background-color: var(--color-secundario);
+    z-index: -1;
+}
+
+.fondoA::before {
+    transition: 300ms ease;
+}
+
+@media screen and (max-width: 449px) {
+    .fondoA::before {
+        background-image: var(--fondoB);
+    }
+}
+
+@media screen and (min-width: 450px) {
+    .fondoA::before {
+        background-image: var(--fondoA);
+    }
+}
+
+.fondoB::before {
+    background-image: var(--fondoB);
+=======
     background-color: rgba(0,0,255,0.2);
 }
 .textoFin{
@@ -112,4 +369,5 @@ html {
 .textoFin2{
     font-size: 150%;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+>>>>>>> 945f54b0ce647fceb3d159b1bbf8e371eba68ccb
 }
