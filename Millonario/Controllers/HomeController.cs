@@ -36,18 +36,6 @@ public class HomeController : Controller
         return View();
     }
     public IActionResult PantallaFindelJuego()
-<<<<<<< HEAD
-=======
-    {
-        return View();
-    }
-[HttpGet]
-    public IActionResult Pregunta(string Nombre)
-    {
-        return View();
-    }
-    public IActionResult PreguntaRespondida(char opcion1, char opcion2)
->>>>>>> 945f54b0ce647fceb3d159b1bbf8e371eba68ccb
     {
         return View();
     }

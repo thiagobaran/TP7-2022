@@ -9,8 +9,20 @@
     <link rel="stylesheet" href="~/css/index.css" />
 </head>
 <body class="index">
-  <center>
   <img class="logo" src="logo.webp">
-  <a href='@Url.Action("Pregunta","Home")' class="btn btn-primary">Jugar</a>
-  </center>
 </body>
+<form class="form" method="post" action = '@Url.Action("GuardarJugador","Home")' enctype="multipart/form-data">
+    <div class="row mx-auto align-items-center, form">
+      <input type="hidden" id="idJugador" name="idJugador" value=@ViewBag.idJugador>
+      <div class="col-auto">
+        <span class="txtIndex">Nombre:</span>
+      </div>
+      <div class="col-auto">
+        <input type="text" id="Nombre" name="Nombre" required></br>
+      </div>
+      <div class="col-auto">
+        <button type="submit">Agregar Jugador</button>
+      </div>
+    </div>
+  </form>
+  

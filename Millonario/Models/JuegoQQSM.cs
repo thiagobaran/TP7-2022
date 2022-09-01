@@ -7,7 +7,7 @@ namespace Millonario.Models
 {
     public static class JuegoQQSM
     {
-        private static string _connectionString = @"Server=Baranlenor7\SQLExpress; Database=Millonario;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-047\SQLExpress; Database=Millonario;Trusted_Connection=True;";
         private static int _idPreguntaActual;
         private static char _RespuestaCorrectaActual;
         private static int _PosicionPozo;
@@ -18,17 +18,18 @@ namespace Millonario.Models
         private static bool _ComodinDobleChance;
         private static List<Pozo> ListaPozo = new List<Pozo>(null);
         private static Jugador _Player;
-        /*public static void inicializarJuego(string nombre, Jugador jugador)
+
+        public static void inicializarJuego(string nombre, Jugador jugador)
             {
-                _idPreguntaActual = idPreguntaActual;
-                _RespuestaCorrectaActual = RespuestaCorrectaActual;
-                _PosicionPozo = PosicionPozo;
-                _PozoAcumuladoSeguro = PozoAcumuladoSeguro;
-                _PozoAcumulado = PozoAcumulado;
-                _Comodin50 = Comodin50;
-                _ComodinSaltear = ComodinSaltear;
-                _ComodinDobleChance = ComodinDobleChance;
-                _Player = Player;
+                _idPreguntaActual = 0;
+                _RespuestaCorrectaActual = ' ';
+                _PosicionPozo = 0;
+                _PozoAcumuladoSeguro = 0;
+                _PozoAcumulado = 0;
+                _Comodin50 = false;
+                _ComodinSaltear = false;
+                _ComodinDobleChance = false;
+                _Player = new Jugador(-1,"",DateTime.Now,-1,false,false,false);
 
                 using(SqlConnection db = new SqlConnection(_connectionString))
                 {
@@ -38,38 +39,38 @@ namespace Millonario.Models
             }
         public static Pregunta obtenerProximaPregunta()
         {
-            Pregunta preg;
             for(int x=1;x<15;x++)
             {
-                idPreguntaActual = x;
+                _idPreguntaActual = x;
                 using(SqlConnection db = new SqlConnection(_connectionString))
                 {
-                string PreguntaActual = "SELECT Preguntas.textoPregunta, Preguntas.nivelDificultad FROM Preguntas WHERE(_idPregunta =idPreguntaActual)";
-                preg = db.QueryFirstOrDefault<Pregunta>(sql,new{idPreguntaActual = idPregunta});
+                string sql = "SELECT Preguntas.textoPregunta, Preguntas.nivelDificultad FROM Preguntas WHERE(_idPregunta =idPreguntaActual)";
+                return db.QueryFirstOrDefault<Pregunta>(sql,new{idPregunta = _idPreguntaActual});
                 }
             }
-            return preg;
+            return null;
         }
         public static List<Respuesta> ObtenerRespuesta()
         {
             List<Respuesta> _ListaRespuesta = new List<Respuesta>();
             using(SqlConnection db = new SqlConnection(_connectionString))
             {
-                string RespuestaActual = "SELECT * FROM Respuestas WHERE(_idPregunta =idPreguntaActual)";
-                _ListaRespuesta = db.QueryFirstOrDefault<Respuesta>(sql,new{idPreguntaActual = idPregunta});
+                string sql = "SELECT * FROM Respuestas WHERE(_idPregunta =idPreguntaActual)";
+                _ListaRespuesta = db.QueryFirstOrDefault<Respuesta>(sql,new{idPregunta = _idPreguntaActual});
 
                 string Respuesta = "SELECT * FROM Respuestas WHERE(Correcta = 1 && _idPregunta =idPreguntaActual)";
-                _RespuestaCorrectaActual =  db.QueryFirstOrDefault<Respuesta>(sql,new{idRespuestaActual = idRespuesta});
+                _RespuestaCorrectaActual =  db.QueryFirstOrDefault<Respuesta>(sql,new{idRespuesta = _idRespuestaActual});
             }
             return List<Respuesta>;
         }
-        public static bool RespuestaUsuario(char Opción, char OpcionComodin='')
+        public static Respuesta RespuestaUsuario(char Opción, char OpcionComodin=' ')
         {
+            
             if(OpcionComodin!=null)
             {
                 Jugador.ComodinDobleChance=0;
             }
-
-        }*/
+            return;
+        }
     }
 }

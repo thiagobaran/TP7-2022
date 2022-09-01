@@ -116,7 +116,6 @@ html {
 
 .jumbo {
     margin-top: 20%;
-<<<<<<< HEAD
     background-color: rgba(0, 0, 255, 0.2);
 }
 
@@ -360,7 +359,6 @@ html {
 
 .fondoB::before {
     background-image: var(--fondoB);
-=======
     background-color: rgba(0,0,255,0.2);
 }
 .textoFin{
@@ -369,5 +367,4 @@ html {
 .textoFin2{
     font-size: 150%;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
->>>>>>> 945f54b0ce647fceb3d159b1bbf8e371eba68ccb
 }
