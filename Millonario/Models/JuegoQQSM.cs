@@ -16,10 +16,10 @@ namespace Millonario.Models
         private static bool _Comodin50;
         private static bool _ComodinSaltear;
         private static bool _ComodinDobleChance;
-        private static List<Pozo> ListaPozo = new List<Pozo>(null);
+        private static List<Pozo> _listaPozo = new List<Pozo>();
         private static Jugador _Player;
 
-        public static void inicializarJuego(string nombre, Jugador jugador)
+        public static Jugador inicializarJuego(string nombre)
             {
                 _idPreguntaActual = 0;
                 _RespuestaCorrectaActual = ' ';
@@ -30,12 +30,15 @@ namespace Millonario.Models
                 _ComodinSaltear = false;
                 _ComodinDobleChance = false;
                 _Player = new Jugador(-1,"",DateTime.Now,-1,false,false,false);
+                _listaPozo = new List<Pozo>() {new Pozo(2000, false), new Pozo(5000, false), new Pozo(10000, false), new Pozo(20000, false), new Pozo(30000, true), new Pozo(50000, false), new Pozo(70000, false), new Pozo(100000, false), new Pozo(130000, false), new Pozo(180000, true), new Pozo(300000, false), new Pozo(500000, false), new Pozo(750000, false), new Pozo(1000000, false), new Pozo(2000000, true)};
 
-                using(SqlConnection db = new SqlConnection(_connectionString))
+                string sql = "INSERT INTO Jugadores(IdJugador, Nombre, FechaHora,PozoGanado,ComodinDobleChance,Comodin50,ComodinSaltear) VALUES (@pIdJugador,@pNombre,@pFechaHora, @pPozoGanado, @pComodinDobleChance, @pComodin50, @pComodinSaltear)";
+                    
+                    using (SqlConnection db = new SqlConnection(_connectionString))
                 {
-                    string sql = "INSERT INTO Jugadores(IdJugador, Nombre, FechaHora) VALUES (@pIdJugador,@pNombre,@pFechaHora)";
-                    db.Execute(sql,new {pIdJugador = jugador.idJugador, pNombre = jugador.Nombre, pFechaHora = jugador.FechaHora});
+                    db.Execute(sql, new {pNombre = _Player.Nombre, pFechaHora=_Player.FechaHora, pPozoGanado=_Player.PozoGanado, pComodinDobleChance=_Player.ComodinDobleChance, pComodin50=_Player.Comodin50, pComodinSaltear=_Player.ComodinSaltear});
                 }
+                return _Player;
             }
         public static Pregunta obtenerProximaPregunta()
         {
@@ -44,8 +47,8 @@ namespace Millonario.Models
                 _idPreguntaActual = x;
                 using(SqlConnection db = new SqlConnection(_connectionString))
                 {
-                string sql = "SELECT Preguntas.textoPregunta, Preguntas.nivelDificultad FROM Preguntas WHERE(_idPregunta =idPreguntaActual)";
-                return db.QueryFirstOrDefault<Pregunta>(sql,new{idPregunta = _idPreguntaActual});
+                string sql = "SELECT * FROM Preguntas WHERE idPregunta = @pidPreguntaActual";
+                return db.QueryFirstOrDefault<Pregunta>(sql, new {pidPreguntaActual=_idPreguntaActual});
                 }
             }
             return null;
@@ -55,22 +58,54 @@ namespace Millonario.Models
             List<Respuesta> _ListaRespuesta = new List<Respuesta>();
             using(SqlConnection db = new SqlConnection(_connectionString))
             {
-                string sql = "SELECT * FROM Respuestas WHERE(_idPregunta =idPreguntaActual)";
-                _ListaRespuesta = db.QueryFirstOrDefault<Respuesta>(sql,new{idPregunta = _idPreguntaActual});
-
-                string Respuesta = "SELECT * FROM Respuestas WHERE(Correcta = 1 && _idPregunta =idPreguntaActual)";
-                _RespuestaCorrectaActual =  db.QueryFirstOrDefault<Respuesta>(sql,new{idRespuesta = _idRespuestaActual});
+                string sql = "SELECT * FROM Respuestas WHERE idPregunta=@pidPreguntaActual";
+                 List<Respuesta> rsp = db.Query<Respuesta>(sql, new { pidPreguntaActual=_idPreguntaActual }).ToList();
+                for (int x= 0; x<rsp.Count; x++)
+                {
+                    if (rsp[x].Correcta == true)
+                    {
+                        _RespuestaCorrectaActual = rsp[x].opcionRespuesta;
+                    }
+                }
+                return rsp;
             }
-            return List<Respuesta>;
         }
-        public static Respuesta RespuestaUsuario(char Opción, char OpcionComodin=' ')
+        public static bool RespuestaUsuario(char Opc1, char Opc2=' ')
         {
-            
-            if(OpcionComodin!=null)
+            bool RespuestaCorrecta = false;
+            if (Opc1!=_RespuestaCorrectaActual && Opc2!=_RespuestaCorrectaActual) return RespuestaCorrecta=false;
+            RespuestaCorrecta = true;
+            if (Opc2 != ' ')
             {
-                Jugador.ComodinDobleChance=0;
+                using (SqlConnection db = new SqlConnection(_connectionString))
+                {
+                    string sql = "UPDATE Jugadores SET ComodinDobleChance = True WHERE idJugador = @player.idJugador";
+                    db.Execute(sql, new {});
+                }
             }
-            return;
+            if (Opc1 == _RespuestaCorrectaActual || Opc2 == _RespuestaCorrectaActual)
+            {
+                _idPreguntaActual++;
+                if (_listaPozo[_PosicionPozo].valorSeguro == true)
+                {
+                    _PozoAcumulado = _listaPozo[_PosicionPozo].idImporte;
+                }
+                _PosicionPozo++; 
+                
+            }
+           return RespuestaCorrecta;
+        }
+        public static List<Pozo> ListarPozo()
+        {
+            return _listaPozo;
+        }
+        public static int DevolverPosicionPozo()
+        {
+            return _PosicionPozo;
+        }
+        public static Jugador DevolverJugador()
+        {
+            return _Player;
         }
     }
 }

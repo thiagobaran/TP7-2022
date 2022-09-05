@@ -24,23 +24,23 @@ public class HomeController : Controller
 [HttpGet]
     public IActionResult Pregunta(string Nombre)
     {
-        
-        return View();
+        JuegoQQSM.inicializarJuego(Nombre);
+        ViewBag.PreguntaActual = JuegoQQSM.obtenerProximaPregunta();
+        ViewBag.RespuestaActual = JuegoQQSM.ObtenerRespuesta();
+        ViewBag.Player = JuegoQQSM.DevolverJugador();
+        ViewBag.ListaPozo = JuegoQQSM.ListarPozo();
+        return View("Pregunta");
     }
-    public IActionResult PreguntaRespondida(char opcion1, char opcion2)
+    public IActionResult PreguntaRespondida(char Opc1, char Opc2)
     {
-        return View();
-    }
-    public IActionResult RespuestapreguntaOk()
-    {
-        return View();
-    }
-    public IActionResult PantallaFindelJuego()
-    {
-        return View();
+        if(JuegoQQSM.RespuestaUsuario(Opc1, Opc2) == true) return View("RespuestaPreguntaOK");
+        else return View("PantallaFindelJuego");
     }
     public IActionResult FinDelJuego()
     {
+        ViewBag.infoPlayer = JuegoQQSM.DevolverJugador();
+        ViewBag.pozoGanado = JuegoQQSM.ListarPozo();
+        return View("PantallaFindelJuego");
         return View();
     }
 
