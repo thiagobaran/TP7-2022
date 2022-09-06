@@ -13,20 +13,16 @@
   <img class="logo" src="logo.webp">
 </body>
 
-  <form class="form" method="get" action = '@Url.Action("Pregunta","Home")' enctype="multipart/form-data">
+  <form class="form" method="get" action = '@Url.Action("Pregunta","Home")'>
     <div class="row mx-auto align-items-center, form">
-      <input type="hidden" id="idJugador" name="idJugador" value=@ViewBag.idJugador>
         <div class="col-auto">
-          <span class="txtIndex">Nombre:</span>
-        </div>
-        <div class="col-auto">
-          <input type="text" id="Nombre" name="Nombre" required></br>
+        <input class="txtIndex" type="text" id="Nombre" name="Nombre" placeholder="Ingresar el nombre del jugador" required></br>
         </div>
         <div class="col-auto">
           <button type="submit">Agregar Jugador</button>
         </div>
     </div>
   </form>
-
+    
 
   

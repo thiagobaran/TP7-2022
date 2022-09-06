@@ -7,7 +7,7 @@ namespace Millonario.Models
 {
     public static class JuegoQQSM
     {
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-047\SQLExpress; Database=Millonario;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=a-phz2-cidi-019; Database=Millonario;Trusted_Connection=True;";
         private static int _idPreguntaActual;
         private static char _RespuestaCorrectaActual;
         private static int _PosicionPozo;
@@ -19,7 +19,7 @@ namespace Millonario.Models
         private static List<Pozo> _listaPozo = new List<Pozo>();
         private static Jugador _Player;
 
-        public static Jugador inicializarJuego(string nombre)
+        public static void inicializarJuego(string nombre)
             {
                 _idPreguntaActual = 0;
                 _RespuestaCorrectaActual = ' ';
@@ -32,34 +32,30 @@ namespace Millonario.Models
                 _Player = new Jugador(-1,"",DateTime.Now,-1,false,false,false);
                 _listaPozo = new List<Pozo>() {new Pozo(2000, false), new Pozo(5000, false), new Pozo(10000, false), new Pozo(20000, false), new Pozo(30000, true), new Pozo(50000, false), new Pozo(70000, false), new Pozo(100000, false), new Pozo(130000, false), new Pozo(180000, true), new Pozo(300000, false), new Pozo(500000, false), new Pozo(750000, false), new Pozo(1000000, false), new Pozo(2000000, true)};
 
-                string sql = "INSERT INTO Jugadores(IdJugador, Nombre, FechaHora,PozoGanado,ComodinDobleChance,Comodin50,ComodinSaltear) VALUES (@pIdJugador,@pNombre,@pFechaHora, @pPozoGanado, @pComodinDobleChance, @pComodin50, @pComodinSaltear)";
+                string sql = "INSERT INTO Jugador(Nombre, FechaHora,PozoGanado,ComodinDobleChance,Comodin50,ComodinSaltear) VALUES (@pNombre,@pFechaHora, @pPozoGanado, @pComodinDobleChance, @pComodin50, @pComodinSaltear)";
                     
                     using (SqlConnection db = new SqlConnection(_connectionString))
                 {
                     db.Execute(sql, new {pNombre = _Player.Nombre, pFechaHora=_Player.FechaHora, pPozoGanado=_Player.PozoGanado, pComodinDobleChance=_Player.ComodinDobleChance, pComodin50=_Player.Comodin50, pComodinSaltear=_Player.ComodinSaltear});
                 }
-                return _Player;
+                _Player = DevolverJugador();
             }
         public static Pregunta obtenerProximaPregunta()
         {
-            for(int x=1;x<15;x++)
-            {
-                _idPreguntaActual = x;
+                _idPreguntaActual++;
                 using(SqlConnection db = new SqlConnection(_connectionString))
                 {
-                string sql = "SELECT * FROM Preguntas WHERE idPregunta = @pidPreguntaActual";
+                string sql = "SELECT * FROM Pregunta WHERE idPregunta = @pidPreguntaActual";
                 return db.QueryFirstOrDefault<Pregunta>(sql, new {pidPreguntaActual=_idPreguntaActual});
                 }
-            }
-            return null;
         }
         public static List<Respuesta> ObtenerRespuesta()
         {
             List<Respuesta> _ListaRespuesta = new List<Respuesta>();
             using(SqlConnection db = new SqlConnection(_connectionString))
             {
-                string sql = "SELECT * FROM Respuestas WHERE idPregunta=@pidPreguntaActual";
-                 List<Respuesta> rsp = db.Query<Respuesta>(sql, new { pidPreguntaActual=_idPreguntaActual }).ToList();
+                string sql = "SELECT * FROM Respuesta WHERE idPregunta=@pidPreguntaActual";
+                List<Respuesta> rsp = db.Query<Respuesta>(sql, new { pidPreguntaActual=_idPreguntaActual }).ToList();
                 for (int x= 0; x<rsp.Count; x++)
                 {
                     if (rsp[x].Correcta == true)
@@ -79,7 +75,7 @@ namespace Millonario.Models
             {
                 using (SqlConnection db = new SqlConnection(_connectionString))
                 {
-                    string sql = "UPDATE Jugadores SET ComodinDobleChance = True WHERE idJugador = @player.idJugador";
+                    string sql = "UPDATE Jugador SET ComodinDobleChance = True WHERE idJugador = @player.idJugador";
                     db.Execute(sql, new {});
                 }
             }
@@ -105,6 +101,13 @@ namespace Millonario.Models
         }
         public static Jugador DevolverJugador()
         {
+            
+            string sql = "SELECT TOP 1 * FROM Jugador ORDER BY idJugador DESC";
+                    
+                    using (SqlConnection db = new SqlConnection(_connectionString))
+                {
+                    _Player= db.QueryFirstOrDefault(sql);
+                }
             return _Player;
         }
     }

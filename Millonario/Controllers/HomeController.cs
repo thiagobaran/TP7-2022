@@ -21,10 +21,18 @@ public class HomeController : Controller
     {
         return View();
     }
-[HttpGet]
+    [HttpPost]
     public IActionResult Pregunta(string Nombre)
     {
         JuegoQQSM.inicializarJuego(Nombre);
+        ViewBag.PreguntaActual = JuegoQQSM.obtenerProximaPregunta();
+        ViewBag.RespuestaActual = JuegoQQSM.ObtenerRespuesta();
+        ViewBag.Player = JuegoQQSM.DevolverJugador();
+        ViewBag.ListaPozo = JuegoQQSM.ListarPozo();
+        return View("Pregunta");
+    }
+    public IActionResult ProxPregunta()
+    {
         ViewBag.PreguntaActual = JuegoQQSM.obtenerProximaPregunta();
         ViewBag.RespuestaActual = JuegoQQSM.ObtenerRespuesta();
         ViewBag.Player = JuegoQQSM.DevolverJugador();
@@ -41,7 +49,6 @@ public class HomeController : Controller
         ViewBag.infoPlayer = JuegoQQSM.DevolverJugador();
         ViewBag.pozoGanado = JuegoQQSM.ListarPozo();
         return View("PantallaFindelJuego");
-        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

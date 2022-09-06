@@ -1,6 +1,6 @@
 @{  
     <body class="preg">
-        <p class="texto" style="color: #f3da0b;">Jugador: nombre jugador</p>
+        <p class="texto" style="color: #f3da0b;">Jugador: @ViewBag.Nombre</p>
     @* <a href='@Url.Action("Player","Home", new {ComodinDobleChance=@pComodin.idPlayer})' class="btn btn-primary">50/50</a>
     <a href='@Url.Action("Player","Home", new {Comodin50=@pComodin.idPlayer})' class="btn btn-primary">Doble chance</a>
     <a href='@Url.Action("Player","Home", new {ComodinSaltear=@pComodin.idPlayer})' class="btn btn-primary">Saltear</a> *@
@@ -24,27 +24,27 @@
             </div>
             <div class="col-8 preguntas">
                     <div class="opciones__item">
-            <button id="a" class="button fondoA"><span class="amarillo"></span><center>Pregunta</center></button>
+            <button id="a" class="button fondoA"><span class="amarillo"></span><center>@ViewBag.textoPregunta</center></button>
           </div>
           <form method="post" action='@Url.Action("PreguntaRespondida","Home")'>
           <div class="millonario">
             <div class="millonario__item">
               <div class="opciones">
                 <div class="opciones__item">
-                  <button id="a" class="button fondoA"><span class="amarillo">A:</span> opcion</button>
+                  <button id="a" class="button fondoA"><span class="amarillo"> @ViewBag.opcionRespuesta:</span> @ViewBag.TextoRespuesta</button>
                 </div>
                 <div class="opciones__item">
-                  <button id="a" class="button fondoB"><span class="amarillo">B:</span> opcion</button>
+                  <button id="a" class="button fondoB"><span class="amarillo"> @ViewBag.opcionRespuesta:</span> @ViewBag.TextoRespuesta</button>
                 </div>
               </div>
             </div>
             <div class="millonario__item">
               <div class="opciones">
                 <div class="opciones__item">
-                  <button id="a" class="button fondoA"><span class="amarillo">C:</span> opcion</button>
+                  <button id="a" class="button fondoA"><span class="amarillo"> @ViewBag.opcionRespuesta:</span> @ViewBag.TextoRespuesta</button>
                 </div>
                 <div class="opciones__item">
-                  <button id="a" class="button fondoB"><span class="amarillo">D:</span> opcion</button>
+                  <button id="a" class="button fondoB"><span class="amarillo"> @ViewBag.opcionRespuesta:</span> @ViewBag.TextoRespuesta</button>
                 </div>
               </div>
             </div>
