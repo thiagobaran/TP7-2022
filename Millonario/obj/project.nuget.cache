@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lB7qTK/qrUatWeO1wc3bEmH6plD2OtFaYhZ7/rEDX9O/K2CX8XiLVt8VrGpZkNdPDXP1GMZVztbhtCL0xmmlyA==",
+  "dgSpecHash": "SYGMpp0EuDTF6ZjpQAoK9KZR1iWVP/lunxI1/8wQChp8dmjkGfG1QxZ5DjgCbEPilXIuN+jgzOws7nOv8V4G0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\46876761\\Downloads\\TP7-2022\\TP7-2022\\Millonario\\Millonario.csproj",
+  "projectFilePath": "C:\\Users\\46876761\\Downloads\\TP7\\TP7-2022\\Millonario\\Millonario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\46876761\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\46876761\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

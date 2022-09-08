@@ -1,5 +1,4 @@
 <body class="preg">
-<p class="texto" style="color: #f3da0b;">Jugador: @ViewBag.Nombre</p>
 <div class="container text-center jumbo texto">
   <div class="row">
     <div class="col-1">
@@ -12,7 +11,7 @@
     <p class="lead">Al haber contestado correctamente esta pregunta, te toca decidir qué hacer, si deseas plantarte y llevarte lo conseguido hasta ahora o continuar en el juego podiendo llegar a perder todo y solo quedarte con el ultimo monto seguro.</p>
   </div>
 </div>
-<a class="btn btn-success" id="plantarse" href='@Url.Action("Pregunta","Home")'>Continuar</a>
+<a class="btn btn-success" id="plantarse" href='@Url.Action("ProxPregunta","Home")'>Continuar</a>
 <a class="btn btn-danger" id="plantarse" href='@Url.Action("FinDelJuego","Home")'>Plantarse</a>
     </div>
   </div>

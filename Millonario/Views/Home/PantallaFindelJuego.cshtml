@@ -1,5 +1,5 @@
-<body class="fin">
-<p class="texto" style="color: #f3da0b;">Jugador:@ViewBag.Nombre</p>
+@{
+  <body class="fin">
 <div class="container text-center jumbo texto">
   <div class="row">
     <div class="col-1">
@@ -9,10 +9,12 @@
       <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4 textoFin">Fin del juego</h1>
-    <p class="lead textoFin2">Te has llevado:$ @ViewBag._PozoAcumulado</p>
+    <p class="lead textoFin2">Te has llevado:$ @ViewBag.pozoGanado.PozoAcumulado</p>
   </div>
 </div>
     </div>
   </div>
 </div>
 </body>
+
+}

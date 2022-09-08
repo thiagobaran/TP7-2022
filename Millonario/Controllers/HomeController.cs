@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Millonario.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Millonario.Controllers;
 
@@ -21,7 +22,8 @@ public class HomeController : Controller
     {
         return View();
     }
-    [HttpPost]
+
+    [HttpGet]
     public IActionResult Pregunta(string Nombre)
     {
         JuegoQQSM.inicializarJuego(Nombre);
@@ -41,12 +43,16 @@ public class HomeController : Controller
     }
     public IActionResult PreguntaRespondida(char Opc1, char Opc2)
     {
-        if(JuegoQQSM.RespuestaUsuario(Opc1, Opc2) == true) return View("RespuestaPreguntaOK");
+        if(JuegoQQSM.RespuestaUsuario(Opc1, Opc2) == true)
+         {
+            ViewBag.PozoAcumulado = JuegoQQSM.DevolverPozo();
+            return View("RespuestaPreguntaOK");
+            }
         else return View("PantallaFindelJuego");
     }
     public IActionResult FinDelJuego()
     {
-        ViewBag.infoPlayer = JuegoQQSM.DevolverJugador();
+        ViewBag.infoJugador = JuegoQQSM.DevolverJugador();
         ViewBag.pozoGanado = JuegoQQSM.ListarPozo();
         return View("PantallaFindelJuego");
     }

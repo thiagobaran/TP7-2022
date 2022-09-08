@@ -6,15 +6,15 @@ namespace Millonario.Models
     {
         private int _idRespuesta;
         private int _idPregunta;
-        private char _opcionRespuesta;
+        private char _OpcionRespuesta;
         private string _TextoRespuesta;
         private bool _Correcta;
         
-        public Respuesta(int idRespuesta,int idPregunta,char opcionRespuesta,string TextoRespuesta,bool Correcta)
+        public Respuesta(int idRespuesta,int idPregunta,char OpcionRespuesta,string TextoRespuesta,bool Correcta)
         {
             _idRespuesta = idRespuesta;
             _idPregunta = idPregunta;
-            _opcionRespuesta = opcionRespuesta;
+            _OpcionRespuesta = OpcionRespuesta;
             _TextoRespuesta = TextoRespuesta;
             _Correcta = Correcta;
         }
@@ -33,10 +33,10 @@ namespace Millonario.Models
             get{return _idPregunta;}
             set { _idPregunta = value; }
         } 
-        public char opcionRespuesta
+        public char OpcionRespuesta
         {
-            get{return _opcionRespuesta;}
-            set { _opcionRespuesta = value; }
+            get{return _OpcionRespuesta;}
+            set { _OpcionRespuesta = value; }
 
         } 
         public string TextoRespuesta

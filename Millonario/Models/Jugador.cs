@@ -4,21 +4,21 @@ namespace Millonario.Models
 {
     public class Jugador
     {
-        private int _idJugador;
+        private int _IdJugador;
         private string _Nombre;
         private DateTime _FechaHora;
-        private int _pozoGanado;
-        private bool _comodinDobleChance;
+        private int _PozoGanado;
+        private bool _ComodinDobleChance;
         private bool _Comodin50;
         private bool _ComodinSaltear;
         
-        public Jugador(int idJugador,string Nombre,DateTime FechaHora,int PozoGanado,bool ComodinDobleChance,bool Comodin50,bool ComodinSaltear)
+        public Jugador(int IdJugador,string Nombre,DateTime FechaHora,int PozoGanado,bool ComodinDobleChance,bool Comodin50,bool ComodinSaltear)
         {
-            _idJugador = idJugador;
+            _IdJugador = IdJugador;
             _Nombre = Nombre;
             _FechaHora = FechaHora;
-            _pozoGanado = PozoGanado;
-            _comodinDobleChance = ComodinDobleChance;
+            _PozoGanado = PozoGanado;
+            _ComodinDobleChance = ComodinDobleChance;
             _Comodin50 = Comodin50;
             _ComodinSaltear = ComodinSaltear;
         }
@@ -27,10 +27,10 @@ namespace Millonario.Models
             
         }
         
-        public int idJugador
+        public int IdJugador
         {
-            get{return _idJugador;}
-            set { _idJugador = value; }
+            get{return _IdJugador;}
+            set { _IdJugador = value; }
         } 
         public string Nombre
         {
@@ -45,13 +45,13 @@ namespace Millonario.Models
         } 
         public int PozoGanado
         {
-            get{return _pozoGanado;}
-            set { _pozoGanado = value;}
+            get{return _PozoGanado;}
+            set { _PozoGanado = value;}
         }
         public bool ComodinDobleChance
         {
-            get{return _comodinDobleChance;}
-            set { _comodinDobleChance = value;}
+            get{return _ComodinDobleChance;}
+            set { _ComodinDobleChance = value;}
         }
         public bool Comodin50
         {
