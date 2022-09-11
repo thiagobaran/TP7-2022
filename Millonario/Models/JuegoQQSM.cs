@@ -7,7 +7,7 @@ namespace Millonario.Models
 {
     public static class JuegoQQSM
     {
-        private static string _connectionString = @"Server=A-phz2-cidi-043; Database=Millonario;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=BARANLENOR7\SQLEXPRESS; Database=Millonario;Trusted_Connection=True;";
         private static int _idPreguntaActual;
         private static char _RespuestaCorrectaActual;
         private static int _PosicionPozo;
@@ -71,14 +71,6 @@ namespace Millonario.Models
         {
             bool RespuestaCorrecta = true;
             if (Opc1!=_RespuestaCorrectaActual && Opc2!=_RespuestaCorrectaActual) return RespuestaCorrecta=false;
-            /*if (Opc2 != ' ')
-            {
-                using (SqlConnection db = new SqlConnection(_connectionString))
-                {
-                    string sql = "UPDATE TOP 1 Jugador SET ComodinDobleChance = True order by idJugador DESC";
-                    db.Execute(sql, new {});
-                }
-            }*/
             if (Opc1 == _RespuestaCorrectaActual || Opc2 == _RespuestaCorrectaActual)
             {
                 _idPreguntaActual++;

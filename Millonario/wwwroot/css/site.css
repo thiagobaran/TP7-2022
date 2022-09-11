@@ -368,3 +368,12 @@ html {
     font-size: 150%;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.pasado{
+    background-color: green;
+}
+.proximo{
+    background-color:yellow;
+}
+.seguro{
+    font-style: bold;
+}

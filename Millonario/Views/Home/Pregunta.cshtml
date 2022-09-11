@@ -1,9 +1,6 @@
 @{  
     <body class="preg">
         <p class="texto" style="color: #f3da0b;">Jugador: @ViewBag.Player.Nombre</p>
-    @* <a href='@Url.Action("Player","Home", new {ComodinDobleChance=@pComodin.idPlayer})' class="btn btn-primary">50/50</a>
-    <a href='@Url.Action("Player","Home", new {Comodin50=@pComodin.idPlayer})' class="btn btn-primary">Doble chance</a>
-    <a href='@Url.Action("Player","Home", new {ComodinSaltear=@pComodin.idPlayer})' class="btn btn-primary">Saltear</a> *@
       
     <div class = "container-fluid ">
         <div class="row">
@@ -50,33 +47,29 @@
           </div>
             </div>
             <div class="col-2 pozo">
-                <table class="table table-bordered h-30 text-light">
-            <thead> 
-                <tr>
-                    <th scope="col"> </th>
-                    <th scope="col">Pozo</th>
-                </tr>
-            </thead>
-            <tbody>
-                @{
+              @{
                     for(int i=ViewBag.ListaPozo.Count-1;i>=0;i--)
                     {
-                        <tr>
-                            <th scope="row">@(i+1)</th>
-                            <td>$@ViewBag.ListaPozo[i].idImporte</td>
-                        </tr>
-                        /*f(ViewBag.ListaPozo.Count-1<(i+1))
-                        {
-                            style="color: #f3da0b;";
-                        }
-                        else{
-                            style="color: green;";
-                        }*/
+                            if(i>=@ViewBag.PosPozo && @ViewBag.Seguro==true)
+                          {
+                            <div class="proximo, seguro">@(i+1) - $@ViewBag.ListaPozo[i].idImporte</div>
+                          }
+                            if(i>=@ViewBag.PosPozo && @ViewBag.Seguro==false)
+                          {
+                            <div class="proximo">@(i+1) - $@ViewBag.ListaPozo[i].idImporte</div>
+                          }
+                          if(i<=@ViewBag.PosPozo && @ViewBag.Seguro==true)
+                          {
+                            <div class="pasado, seguro">@(i+1) - $@ViewBag.ListaPozo[i].idImporte</div>
+                          }
+                            if(i<=@ViewBag.PosPozo && @ViewBag.Seguro==false)
+                          {
+                            <div class="pasado">@(i+1) - $@ViewBag.ListaPozo[i].idImporte</div>
+                          }
                     }
                 }
-            </tbody>
-        </table>
-            </div>
+        </div>
+
         </div>
     </div>
     </body>
